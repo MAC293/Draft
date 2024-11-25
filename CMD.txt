@@ -1,0 +1,238 @@
+Reset winsock catalog: netsh winsock reset
+Check Repair Physical Sectors: chkdsk [Unit letter]: /r
+RAM check: mdsched.exe
+MACs (Ethernet/WI-FI): getmac /v 
+Windows Explorer: explorer
+DirectX: dxdiag 
+System benchmark: msinfo32
+Reduce latency accessing websites: ipconfig /flushdns
+Device name: hostname 
+Boot options: msconfig
+Check Repair Corrupted File System: chkdsk [Unit letter]: /f
+Display drivers list: driverquery -v
+Identify unused drivers: sigverif
+Display windows version including its service packs: winver or systeminfo | findstr /B/C:"OS Name" /C:"OS Version"
+Display tasks: tasklist 
+Registry management: regedit
+Services: services.msc
+Start/stop Windows Update: net start/stop wuauserv
+Check a specific dll : sfc /scanfile=c:\windows\system32\kernel32.dll
+Check Windows activation status: slmgr /xpr
+HDD/SSD status (S.M.A.R.T): wmic diskdrive get status
+Uninstall windows update: wusa /uninstall /kb:xxxxxxx
+Who woke up the PC the last time: powercfg lastwake
+Commands history: doskey /history 
+Commands history with a selector: F7
+Execute multiple commands: &&
+Save on a clipboard a command: command name | clip
+Abort a process: Ctrl + C
+Get Windows 10 key (As administrator): wmic path softwarelicensingservice get OA3xOriginalProductKey
+System information: systeminfo
+Check TRIM status: fsutil behavior query DisableDeleteNotify
+List of all apps (As admin): explorer shell:AppsFolder
+Get motherboard: wmic baseboard get product, manufacturer, version, serialnumber
+Device Manager: devmgmt.msc
+Disk Management: diskmgmt.msc
+Event Viewer: eventvwr
+Power Options: powercfg.cpl
+Computer Management: compmgmt.msc
+Task Manager: taskmgr
+Get GPU: wmic path win32_VideoController get name
+Wake up times: powercfg lastwake
+Log Out: shutdown -I
+System Properties: sysdm.cpl
+Network Adapter: ncpa.cpl
+Clear CMD: cls
+New command line: Ctrl + C
+RAM part number: wmic memorychip get devicelocator, partnumber
+Get printer information: wmic printer get drivername, name, portname
+Create a new folder: mkdir [Folder Name]
+Folder content (Must execute it in folder): dir
+Kill Process: taskkill /F /IM [Process Name].exe
+Convert CMD content to TXT: [Command] >> [File Name].txt
+Open file (Must execute it in folder): Notepad [File Name].txt
+Copy (Must execute it in source folder): copy [File Name].txt [Exact path destination]
+Start/Stop Service: net start/stop [Service Name]
+Ping: ping [Site Name]
+Remove a Service (CMD as admin): sc delete [Service Name]
+File Explorer Options: control folders
+Control Panel: control
+Windows Boot Manager Information: bcdedit
+Check Filetype Association Program: assoc
+Turn Firewall On/Off: netsh advfirewall set allprofiles state on/off
+Boot Into BIOS Directly: shutdown /r /fw /f /t 0
+Copy Content On Clipboard: [Command] | clip
+Update Every Installed Program: winget upgrade → winget upgrade - - All
+Change User Password (As administrator): net user [Username] [Password]
+Open Time and Date: timedate.cpl
+Execute as administrator: CTRL + Shift + ENTER
+Display Machine Users: net user / wmic useraccount get name
+Devices and Printers: control printers
+List Connected Printers: wmic printer list brief
+Uninstall Programs: appwiz.cpl
+Adding a New Device: devicepairingwizard
+Advanced User Account: netplwiz
+Backup and Restore: sdclt
+Bluetooth File Transfer: fsquirt
+Certificates: certmgr.msc
+List All Established Connections: netstat -ano | findstr "ESTABLISHED"
+List All Running Processes: tasklist
+Performance Options: systempropertiesperformance
+Disk Cleanup: cleanmgr
+Disk Defragmenter: dfrgui
+Driver Verifier Manager: verifier
+Internet Options: inetcpl.cpl
+Local Group Policy Editor: gpedit.msc
+Local Security Policy: secpol.msc
+Local Users And Groups: lusrmgr.msc	
+Performance Monitor: perfmon.msc
+Print Management: printmanagement.msc
+Region and Language: intl.cpl
+Remote Desktop Connection: mstsc
+Resource Monitor: resmon
+Screen Resolution: desk.cpl
+Signout: logoff
+Sound: mmsys.cpl
+System Restore: rstrui
+Task Scheduler: taskschd.msc
+Windows Features: optionalfeatures
+Volume Mixer: sndvol
+Firewall: firewall.cpl
+Firewall (Advanced Security): wf.msc
+Display All Recent Opened Files/Folders: explorer recent
+Reboot: shutdown -r or /r
+Connect Remotely to Linux: SSH [IP]
+Display List of IPs and MACs that my Device has Connected to: arp -a
+Display Folder Content as a Tree View: tree /f (Folders-Files), tree (Folders), tree /a (Folders on ASCII), tree /f /a ((Folders-Files on ASCII)
+Force Deletion File/Folder/Etc: del /f /q /a ["Fullpath"]
+Get Notebook Model Name: wmic csproduct get name
+
+Change font color
+
+Help color
+Color [N° of Color]
+
+System File Checker: sfc /scannow
+/VERIFYONLY: Check the integrity but don’t repair the files
+/SCANFILE: Scan the integrity of specific files and fix if corrupted
+/VERIFYFILE: Verify the integrity of specific files but don’t repair them
+/OFFBOOTDIR: Use this to do repairs on an offline boot directory
+ /OFFWINDIR: Use this to do repairs on an offline Windows directory
+/OFFLOGFILE: Specify a path to save a log file with scan results
+
+Clean Windows Image
+Dism /Online /Cleanup-Image /CheckHealth
+Dism /Online /Cleanup-Image /ScanHealth
+Dism /Online /Cleanup-Image /RestoreHealth
+
+Restore USB Back to its Full Capacity
+Open CMD as admin
+Type: diskpart
+Type: list disk
+Type: select disk x (Replace the x with the disk number of the USB)
+Type: list partition
+Type: select partition x (Replace the x with the partition number I want to select)
+Type: delete partition or Error: Cannot delete a protected partition w/o the force protected parameter set, apply: delete partition override
+
+Bypass a Windows 10 Log In Password
+
+1. Enter to troubleshoot, using shift + reboot, or use Windows bootable USB drive
+2. Troubleshoot > Advanced options > CMD
+3. 3.1 c:
+    3.2 cd windows
+    3.3 cd system32
+    3.4 copy utilman.exe \ (Y)
+    3.5 copy cmd.exe utilman.exe (Y)
+    3.6 copy narrator.exe \ (Y)
+    3.7 copy cmd.exe narrator.exe \ (Y)
+4. Continue with Windows 10 / Reboot
+5. Click on “Ease of Access”
+ 6. net user administrator /active:yes
+7. Reboot
+8. Click on “Ease of Access”
+9. net user [username] [new password]
+10. exit
+11. Once on the user account. Remove Administrator account: net user administrator /active:no on CMD
+
+How To Fix USB Can't Read or Format. A device as a Single Volume (CMD as Admin)
+
+diskpart
+list disk
+select disk #
+list volume
+select volume #
+delete volume
+select disk #
+clean
+create par primary
+ format fs = ntfs quick
+
+Get WI-Fi Password On Already Signed Into
+Show Network Profiles: netsh wlan show profile
+Find Password for a WI-FI Profile. "Key Content" is the Password: netsh wlan show profile [Profile Name] key=clear
+
+Ways To Boot Into Safe Mode
+CMD: bcdedit /set {current} safeboot minimal
+CMD: bcdedit /set {current} safeboot network
+CMD: shutdown.exe /r /o
+
+Convert MBR To GPT/GPT To MBR (Data will be lost)
+diskpart
+list disk
+select disk [Number]
+clean
+convert mbr/gpt
+
+Get New IP Address
+
+ipconfig /release
+ipconfig /renew
+
+Check Power Issues
+
+powercfg /energy
+powercfg /batteryreport
+
+Make a Folder/File Visible/Invisible
+
+Invisible
+Open PowerShell/CMD on the folder/file directory
+attrib +s +h [Folder/File.extension name in quotes]
+
+Visible
+Open PowerShell/CMD on the folder/file directory
+attrib +s -h [Folder/File.extension name in quotes]
+
+Open
+Open PowerShell/CMD on the folder/file directory
+explorer .\[Folder/File.extension name in quotes]
+
+Bypass Executable Administrator Password
+
+Create a .bat file with any name
+Type: Set  __COMPAT_LAYER=RunAsInvoker 
+          Start [Program Name.exe]
+Run the .bat file to execute the program without administrator privileges
+
+Reset Administrator Password
+
+Create a Media Creation Tool
+Boot into the Media Creation Tool
+Repair your computer
+Troubleshoot → Command Prompt
+cd Windows
+cd System32 → ren cmd.exe utilman2.exe
+ren utilman.exe cmd.exe
+ren utilman2.exe utilman.exe
+Exit CLI → Continue
+Open, "Ease of Access" at Log In
+whoami
+net user [Username] [Password] /add
+netplwiz → properties on the new created user → Group membership → Set to admin
+Close everything
+Log In to the standard user
+
+Transfer File/Folder Using SSH From Windows to  Linux 
+
+File (Must be on C drive): scp [Absolute Windows File Path]  [Username]@[Hostname/IP]:[Absolute Linux Path] 
+Folder (Must be on C drive):  scp -r [Absolute Windows Folder Path]  [Username]@[Hostname/IP]:[Absolute Linux Path]

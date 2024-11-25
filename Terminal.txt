@@ -1,0 +1,53 @@
+Restart network service: sudo systemctl restart networking
+Star/Stop service: sudo systemctl start/stop [Service name].service 
+Check-Repair disk: sudo fsck /dev/sd[N°]
+Check MAC (ether): ip link show
+Clean package cache: sudo apt clean && sudo apt autoremove
+Hardware information: sudo lshw
+Flush DNS: sudo resolvectl flush-caches
+Device name: hostname
+Check-Repair file system: sudo fsck /dev/sd[N°]
+Driver list: lspci
+Linux version: cat /etc/os-release
+Task manager: top or htop
+Block devices (Storage devices): lsblk -f
+IP: ifconfig/ip addr show
+Services: systemctl list-units --type=service
+Start/Stop updates: sudo systemctl start/stop packagekit
+Install/Remove package: sudo apt (Any package manager) install/remove [Package name]
+Command history: history
+Kill process: kill [PID]
+Check TRIM status: sudo hdparm -I /dev/sda[N°] | grep TRIM
+List all programs: dpkg (Debian based) --list
+Motherboard information: sudo dmidecode -t baseboard
+Device manager: lsusb
+Disk partition: gparted (Program)
+Partition table: sudo fdisk -l
+File systems: df -h
+GPU information: lspci | grep -i vga
+Logout: logout/CTRL + D
+System properties: hostnamectl
+Network adapter: nmtui
+RAM information: sudo dmidecode -t memory
+Printer information: lpstat -p -d
+Disable a service: sudo systemctl disable --now [Service name].service
+On/Off firewall: sudo ufw enable/disable
+Display users: getent passwd
+Update certificates: sudo update-ca-certificates
+List established connections: netstat -tuln
+Region-Language: localectl
+Sound: pavucontrol
+Remote desktop control: remmina
+IPs-MACs connected to LAN: arp -a
+Display content as tree: tree
+Reruns the last command executed with sudo: sudo !!
+Apply changes without restarting the terminal: source [File location]
+Check session type: echo $XDG_SESSION_TYPE
+Program Location: whereis [Program Name]
+Find Executable/File Location: which [Program/File Name]
+Locate File/Folder (For a new content to be found, run: updatedb): locate [File/Folder]
+cURL (Download): curl [URL] -o [Location]
+Check current shell: echo $SHELL
+Shell Switch
+Temporary: exec bash/zsh
+Permanent: chsh -s $(which [Shell name]) or chsh -s /bin/[Shell name]
