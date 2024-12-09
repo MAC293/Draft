@@ -1,0 +1,34 @@
+• Most Used
+
+?: help
+Navigate tabs: J/K
+j: ↓
+k: ↑
+r: reload
+ESC: exit/reset
+T: search tabs
+yy: copy URL
+p: copy clipboard URL in current tab
+P: copy clipboard URL in new tab
+o: open URL, bookmark, history current tab
+O: open URL, bookmark, history new tab
+b: open bookmark current tab
+B: open bookmark new tab
+yt: duplicate tab
+ALT + p: pin/unpin tab
+x: close current tab
+X: restore closed tab 
+l: open link current tab
+L: open link new tab
+gi: focus on first text input
+
+• Least Used
+
+gg: scroll top
+G: scroll bottom
+i: insert mode
+v: visual mode
+/: find mode
+ALT + m: mute/unmute tab
+
+
